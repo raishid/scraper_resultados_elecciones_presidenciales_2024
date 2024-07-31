@@ -16,15 +16,15 @@ def init_scraper(EDO: int, INIT_URL: str):
     tryy = 0
     while tryy <= 5:
       try:
-        print(f'Extrayendo datos Municipio: {INIT_URL}{municipio['url']}')
-        cls.get_parroquia(f'{INIT_URL}{municipio['url']}')
+        print(f'Extrayendo datos Municipio: {INIT_URL}{municipio["url"]}')
+        cls.get_parroquia(f'{INIT_URL}{municipio["url"]}')
         tryy = 6
       except:
         tryy += 1
         print('Error en get_parroquia')
         if tryy == 5:
           err = traceback.format_exc()
-          open('error.txt', 'a').write(f'Error en get_parroquia:\n{INIT_URL}{municipio['url']}\n{err}\n')
+          open('error.txt', 'a').write(f'Error en get_parroquia:\n{INIT_URL}{municipio["url"]}\n{err}\n')
       
     
   parroquias = cls.parroquias
@@ -34,15 +34,15 @@ def init_scraper(EDO: int, INIT_URL: str):
     tryy = 0
     while tryy <= 5:
       try:
-        print(f'Extrayendo datos Parroquia: {INIT_URL}{parroquia['url']}')
-        cls.get_centros(f'{INIT_URL}{parroquia['url']}')
+        print(f'Extrayendo datos Parroquia: {INIT_URL}{parroquia["url"]}')
+        cls.get_centros(f'{INIT_URL}{parroquia["url"]}')
         tryy = 6
       except:
         tryy += 1
         print('Error en get_centros')
         if tryy == 5:
           err = traceback.format_exc()
-          open('error.txt', 'a').write(f'Error en get_centros:\n{INIT_URL}{parroquia['url']}\n{err}\n')
+          open('error.txt', 'a').write(f'Error en get_centros:\n{INIT_URL}{parroquia["url"]}\n{err}\n')
     
   centros = cls.centros
   for centro in centros:
@@ -51,15 +51,15 @@ def init_scraper(EDO: int, INIT_URL: str):
     tryy = 0
     while tryy <= 5:
       try:
-        print(f'Extrayendo datos Centro: {INIT_URL}{centro['url']}')        
-        cls.get_mesas(f'{INIT_URL}{centro['url']}')
+        print(f'Extrayendo datos Centro: {INIT_URL}{centro["url"]}')        
+        cls.get_mesas(f'{INIT_URL}{centro["url"]}')
         tryy = 6
       except:
         tryy += 1
         print('Error en get_centros')
         if tryy == 5:
           err = traceback.format_exc()
-          open('error.txt', 'a').write(f'Error en get_centros:\n{INIT_URL}{centro['url']}\n{err}\n')
+          open('error.txt', 'a').write(f'Error en get_centros:\n{INIT_URL}{centro["url"]}\n{err}\n')
     
   mesas = cls.mesas
   for mesa in mesas:
@@ -68,8 +68,8 @@ def init_scraper(EDO: int, INIT_URL: str):
     tryy = 0
     while tryy <= 5:
       try:
-        print(f'Extrayendo datos Mesa: {INIT_URL}{mesa['url']}')        
-        results = cls.get_actas(f'{INIT_URL}{mesa['url']}')
+        print(f'Extrayendo datos Mesa: {INIT_URL}{mesa["url"]}')        
+        results = cls.get_actas(f'{INIT_URL}{mesa["url"]}')
         DB.guardar_acta_if_no_exist(
           id=results['id'],
           votos_edmundo=results['votos_edmundo'],
@@ -88,7 +88,7 @@ def init_scraper(EDO: int, INIT_URL: str):
         print('Error en get_actas')
         if tryy == 5:
           err = traceback.format_exc()
-          open('error.txt', 'a').write(f'Error en get_actas:\n{INIT_URL}{mesa['url']}\n{err}\n')
+          open('error.txt', 'a').write(f'Error en get_actas:\n{INIT_URL}{mesa["url"]}\n{err}\n')
 
 def main():
     
