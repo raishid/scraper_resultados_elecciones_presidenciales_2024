@@ -153,14 +153,14 @@ class DB:
     conexion.commit()
 
   @staticmethod  
-  def guardar_acta_if_no_exist( id: int, votos_edmundo: int, votos_nicolas: int, votos_otros: int, electores: int, votantes: int, participacion: float, acta_image: str, mesa_id: int):
+  def guardar_acta_if_no_exist(id: int, votos_edmundo: int, votos_nicolas: int, votos_otros: int, electores: int, votantes: int, participacion: float, acta_image: str, mesa_id: int):
     cls = DB()
     conexion = cls.conexion
     cursor = cls.cursor
     
     exist = cursor.execute(f"""
-      SELECT * FROM actas WHERE mesa_id = ?
-    """, (mesa_id,)).fetchone()
+      SELECT * FROM actas WHERE id = ?
+    """, (id,)).fetchone()
 
     if exist:
       return
