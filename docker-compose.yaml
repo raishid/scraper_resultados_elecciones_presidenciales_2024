@@ -1,0 +1,9 @@
+services:
+  scraper:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./db:/app/db
+      - ./secuencia.json:/app/secuencia.json
+      - ./actas:/app/actas
