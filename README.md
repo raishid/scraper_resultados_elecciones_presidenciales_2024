@@ -10,6 +10,7 @@ Aca esta el scraper para extraer todos los resultados por estado, municipio, cen
 ## Comandos
 
     pip install -r requeriments.txt
+    playwright install
     python main.py
 
 #### Docker
