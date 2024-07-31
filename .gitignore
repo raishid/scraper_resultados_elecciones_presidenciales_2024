@@ -1,0 +1,5 @@
+!actas/.gitkeep
+actas/*
+!db/.gitkeep
+db/*
+modules/__pycache__/
