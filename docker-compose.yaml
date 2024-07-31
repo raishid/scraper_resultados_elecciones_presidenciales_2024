@@ -7,3 +7,5 @@ services:
       - ./db:/app/db
       - ./secuencia.json:/app/secuencia.json
       - ./actas:/app/actas
+      - ./error.txt:/app/error.txt
+      - ./secuencia.json:/app/secuencia.json
