@@ -99,7 +99,7 @@ def main():
   
   json_read = json.loads(open('secuencia.json', 'r').read())
   
-  INIT_URL = f'https://www.resultadosconvzla.com'
+  INIT_URL = f'https://resultadosconvzla.com'
   EDO = json_read['secuencia']
   
   while EDO < 25:
