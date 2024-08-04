@@ -69,7 +69,14 @@ def init_scraper(EDO: int, INIT_URL: str):
     while tryy <= 5:
       try:
         print(f'Extrayendo datos Mesa: {INIT_URL}{mesa["url"]}')        
+        
+        id = mesa['url'].split('/')[-1]
+        
+        if DB.verify_acta_exist(id) == None:
+          continue
+        
         results = cls.get_actas(f'{INIT_URL}{mesa["url"]}')
+
         DB.guardar_acta_if_no_exist(
           id=results['id'],
           votos_edmundo=results['votos_edmundo'],
